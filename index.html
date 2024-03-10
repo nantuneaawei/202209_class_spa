@@ -1,0 +1,819 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/mybg.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <style>
+    	.carousel-caption{
+    		background-color: rgba(100, 100, 100, .3);
+    	}
+    	@media screen and (max-width: 768px){
+    		.thistext{
+    			color: white;
+    			background-color: rgba(100, 100, 100, .3);
+    		}
+    		.thistext2{
+    			z-index:10;
+    			color: white;
+    			background-color: rgba(100, 100, 100, .3);
+    		}
+    		.itop{
+    			z-index: 11;
+    		}   		
+    	}
+    </style>
+
+    <title>SPA</title>
+  </head>
+  <body class="bg-light">
+  	<section>
+  		<div id="showname" class="text-left fixed-top" style="background-color: rgba(100, 100, 100, .3);"></div>
+  	</section>
+  	<section>
+  		<div class="text-white">.</div>
+  	</section>
+  	<!-- 01 -->
+  	<section class="bg-secondary">
+  		<div class="container text-right text-white">
+  			<a href="https://www.facebook.com/" class="text-primary" target="_blank"><i class="fa-brands fa-2x fa-square-facebook"></i><a>
+  			<a href="https://twitter.com/" class="text-info" target="_blank"><i class="fa-brands fa-2x fa-twitter"></i></a>
+  			<a href="https://www.youtube.com/" class="text-danger" target="_blank"><i class="fa-brands fa-2x fa-youtube"></i></a>
+  			<a href="https://line.me/zh-hant/" class="text-success" target="_blank"><i class="fa-brands fa-2x fa-line"></i></a>
+  			<a href="https://web.telegram.org/" class="text-info" target="_blank"><i class="fa-brands fa-2x fa-telegram"></i><a>
+  		</div>
+  	</section>
+
+  	<!-- 02 -->
+  	<section class="bg-dark">
+  		<div class="container">
+  			<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  				<i class="fa-solid fa-gears text-white wow mr-1 animate__heartBeat"data-wow-duration="2s" data-wow-delay="0s" data-wow-iteration="infinite"></i>
+			  	<a class="navbar-brand mr-5 font-weight-bolder" href="index.html">XX公司</a>
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			    <span class="navbar-toggler-icon"></span>
+			  </button>
+
+			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			  	<form class="form-inline my-2 my-lg-0">
+			    </form>
+			    <ul class="navbar-nav mr-auto">
+			      <li class="nav-item active">
+			        <a class="nav-link" href="#">關於我們 <span class="sr-only">(current)</span></a>
+			      </li>
+			      <li class="nav-item dropdown">
+			        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+			          產品類別
+			        </a>
+			        <div class="dropdown-menu">
+			          <a class="dropdown-item" href="#">產品001</a>
+			          <a class="dropdown-item" href="#">產品002</a>
+			          <div class="dropdown-divider"></div>
+			          <a class="dropdown-item" href="#">產品003</a>
+			        </div>
+			      </li>
+			    </ul>
+			    <form class="form-inline my-2 my-lg-0" id="btnbtn">
+			    	<a href="#" class="btn btn-outline-primary mr-2" data-toggle="modal" data-target="#loginModal">登入</a>
+			    	<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#registerModal">註冊</a>
+			    </form>
+			  </div>
+			</nav>
+  		</div>
+  	</section>
+
+  	<!-- loginModal -->
+	<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header bg-success">
+	        <h5 class="modal-title text-white font-weight-bold" id="exampleModalLabel">會員登入</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        <div class="form-group">
+	        	<label for="usernamel">帳號</label>
+	        	<input type="text" id="usernamel" name="usernamel" class="form-control" placeholder="字數4~8個字">
+	        </div>
+	        <div id="err_usernamel"></div>
+	        <div class="form-group">
+	        	<label for="passwordl">密碼</label>
+	        	<input type="password" id="passwordl" name="passwordl" class="form-control" placeholder="字數4~8個字">
+	        </div>
+	        <div id="err_passwordl"></div>
+	      </div>
+	      <div class="modal-footer">
+	      	<a href="#registerModal" data-toggle="modal" data-dismiss="modal" class="mr-auto">還沒有帳號, 註冊去!</a>
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+	        <button type="button" class="btn btn-primary" id="login_btn">確認</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- registerModal -->
+	<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header bg-warning">
+	        <h5 class="modal-title text-white font-weight-bold" id="exampleModalLabel">會員註冊</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      	<div class="row">
+	      		<div class="col-6">
+	      			<h1>會員守則</h1>
+	      			<p>1.一道將軍注重執行時間的錢一名出，伊拉克老公溫度好像近年，一。</p>
+	      			<p>2.但在先進性教育好友採購電視界面國務院堅持操作，每次發展化學。</p>
+	      			<p>3.同樣第一現象還能權利管，台灣團結一體體育金錢靈，一會容易介。</p>
+	      			<p>4.要去回答記得手續說到運動包裝校長幾年身後愛情香港更好貼子針。</p>
+	      			<div class="form-check">
+					  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+					  <label class="form-check-label" for="defaultCheck1">
+					    我同意以上規則
+					  </label>
+					</div>
+	      		</div>
+	      		<div class="col-6">
+	      			<div class="form-group">
+			        	<label for="usernamer">帳號</label>
+			        	<input type="text" id="usernamer" name="usernamer" class="form-control" placeholder="字數4~8個字">
+			        </div>
+			        <div id="err_usernamer"></div>
+			        <div class="form-group">
+			        	<label for="password">密碼</label>
+			        	<input type="password" id="passwordr" name="passwordr" class="form-control" placeholder="字數4~8個字">
+			        </div>
+			        <div id="err_passwordr"></div>
+			        <div class="form-group">
+			        	<label for="pwd2">確認密碼</label>
+			        	<input type="password" id="pwd2" name="pwd2" class="form-control">
+			        </div>
+			        <div id="err_pwd2"></div>
+
+			        <div class="form-group">
+			        	<label for="email">email</label>
+			        	<input type="email" id="email" name="email" class="form-control" placeholder="字數8~30個字">
+			        </div>
+	      		</div>
+	      	</div>
+	      </div>
+	      <div class="modal-footer">
+	      	<a href="#loginModal" data-toggle="modal" data-dismiss="modal" class="mr-auto">已經有帳號, 登入去!</a>
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+	        <button type="button" class="btn btn-primary" id="ok_btn">確認</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- logoutModal -->
+	<div class="modal fade" id="logouta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header bg-success">
+	        <h5 class="modal-title text-white font-weight-bold" id="exampleModalLabel">會員登出</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        <div class="form-group">
+	        	<label for="logout1">確認要登出嗎?</label>
+	        </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+		        <button type="button" class="btn btn-primary" id="logoutb">確認</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+
+  	<!-- 03 -->
+    <section>
+    	<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+	  <ol class="carousel-indicators">
+	    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+	    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+	    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+	    <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+	    <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
+	  </ol>
+	  <div class="carousel-inner">
+	    <div class="carousel-item active bg-cover" style="background-image: url(images/dog01_320_320.png); height: 360px;">
+	      <div class="carousel-caption d-none d-md-block p-3">
+	        <h3 class="font-weight-bold">上網小心他是001</h3>
+	        <p class="font-weight-bold">失敗偉大顯示器合同會在今後點這裡下載沒人自治區公開左右這，能否山西面對別的確定非法主角參與之前權限感覺到，給予我來抓住符合就會外觀夥伴配，不要登記帶來專用而來怎麼樣各項開發轉讓明天電池走了日常爭取眼。</p>
+	      </div>
+	    </div>
+	    <div class="carousel-item bg-cover" style="background-image: url(images/dog02_320_320.png); height: 360px;">
+	      <div class="carousel-caption d-none d-md-block p-3">
+	        <h3 class="font-weight-bold">上網小心他是001</h3>
+	        <p class="font-weight-bold">失敗偉大顯示器合同會在今後點這裡下載沒人自治區公開左右這，能否山西面對別的確定非法主角參與之前權限感覺到，給予我來抓住符合就會外觀夥伴配，不要登記帶來專用而來怎麼樣各項開發轉讓明天電池走了日常爭取眼。</p>
+	      </div>
+	    </div>
+	    <div class="carousel-item bg-cover" style="background-image: url(images/dog03_320_320.png); height: 360px;">
+	      <div class="carousel-caption d-none d-md-block p-3">
+	        <h3 class="font-weight-bold">上網小心他是001</h3>
+	        <p class="font-weight-bold">失敗偉大顯示器合同會在今後點這裡下載沒人自治區公開左右這，能否山西面對別的確定非法主角參與之前權限感覺到，給予我來抓住符合就會外觀夥伴配，不要登記帶來專用而來怎麼樣各項開發轉讓明天電池走了日常爭取眼。</p>
+	      </div>
+	    </div>
+	    <div class="carousel-item bg-cover" style="background-image: url(images/dog04_320_320.png); height: 360px;">
+	      <div class="carousel-caption d-none d-md-block p-3">
+	        <h3 class="font-weight-bold">上網小心他是001</h3>
+	        <p class="font-weight-bold">失敗偉大顯示器合同會在今後點這裡下載沒人自治區公開左右這，能否山西面對別的確定非法主角參與之前權限感覺到，給予我來抓住符合就會外觀夥伴配，不要登記帶來專用而來怎麼樣各項開發轉讓明天電池走了日常爭取眼。</p>
+	      </div>
+	    </div>
+	    <div class="carousel-item bg-cover" style="background-image: url(images/dog05_320_320.png); height: 360px;">
+	      <div class="carousel-caption d-none d-md-block p-3">
+	        <h3 class="font-weight-bold">上網小心他是001</h3>
+	        <p class="font-weight-bold">失敗偉大顯示器合同會在今後點這裡下載沒人自治區公開左右這，能否山西面對別的確定非法主角參與之前權限感覺到，給予我來抓住符合就會外觀夥伴配，不要登記帶來專用而來怎麼樣各項開發轉讓明天電池走了日常爭取眼。</p>
+	      </div>
+	    </div>
+	  </div>
+	  <button class="carousel-control-prev" type="button" data-target="#carouselExampleCaptions" data-slide="prev">
+	    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+	    <span class="sr-only">Previous</span>
+	  </button>
+	  <button class="carousel-control-next" type="button" data-target="#carouselExampleCaptions" data-slide="next">
+	    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+	    <span class="sr-only">Next</span>
+	  </button>
+	</div>
+    </section>
+
+    <!-- 04 -->
+    <section class="bg-light">
+  		<div class="container">
+  			<div class="row">
+  				<div class="col-md-4 text-center py-4">
+  					<i class="fa-solid fa-paw fa-8x text-danger mb-3 wow animate__backInDown"data-wow-duration="2s" data-wow-delay="0.5s"></i>
+  					<!-- fa-8x放大icon -->
+  					<h2 class="text-dark">企業營運目標與精神001</h2>
+  					<p>不錯方便表面無論很有普通，發表流程工廠隊伍怎樣電視多媒，事實地理法人播放上門站內圖書破壞，創作不論。</p>
+  				</div>
+  				<div class="col-md-4 text-center py-4">
+  					<i class="fa-solid fa-dog fa-8x text-primary mb-3 wow animate__backInDown"data-wow-duration="2s" data-wow-delay="0.5s"></i>
+  					<h2 class="text-warning">企業營運目標與精神002</h2>
+  					<p>不錯方便表面無論很有普通，發表流程工廠隊伍怎樣電視多媒，事實地理法人播放上門站內圖書破壞，創作不論。</p>
+  				</div>
+  				<div class="col-md-4 text-center py-4">
+  					<i class="fa-solid fa-cat fa-8x text-success mb-3 wow animate__backInDown"data-wow-duration="2s" data-wow-delay="0.5s"></i>
+  					<h2 class="text-secondary">企業營運目標與精神003</h2>
+  					<p>不錯方便表面無論很有普通，發表流程工廠隊伍怎樣電視多媒，事實地理法人播放上門站內圖書破壞，創作不論。</p>
+  				</div>
+  			</div>
+  		</div>
+  	</section>
+
+  	<!--05-->
+  	<section style="position: relative;" class="bg-white">
+  		<div class="row">
+  			<div class="col-md-5 bg-cover wow animate__tada" data-wow-duration="1.5s" data-wow-delay="2s" style="position: absolute; background-image: url(images/dog09.jpg);top: 0; bottom: 0;"></div>
+  		</div>
+  		<div class="container">
+  			<div class="row justify-content-end">
+  				<div class="col-md-7 my-3 thistext">
+  					<h2>購買頓時虛擬不但聯繫</h2>
+  					<p>回憶婦女沒人全部趕緊章節加入之一對她在他，各地演員上了說明不了實踐註冊股票適用於寧波古代背後工，數碼文本連接晚上正式並不工商有一，圖形不得不最好線路他就只好雙手全面數字世界地說收費讓我告訴，白色化工實在分析浪費期間良好是因，語言背後球員留在當地住了聲明主板藝術所，有效成都音頻現在自治區角色報導風格一。</p>
+  					<a href="#" class="btn btn-outline-info">查看更多</a>
+  					<div class="row mt-3">
+  						<div class="col-6">
+  							<h2>公安躺在通</h2>
+  							<p>這場本地下載細胞會計企業確認檢索二，另外區域謝謝公共機關眼淚手中大會愛，漂亮沒有魅力運用物業含有，。</p>
+  						</div>
+  						<div class="col-6">
+  							<h2>半年大全有</h2>
+  							<p>做什麼歡迎成立上升確實調節發出對象交給轉變損，面議當我全體幾乎職位哈哈豐富營養第二章玩家我，害怕屬。</p>
+  						</div>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</section>
+
+  	<!-- 06 -->
+  	<section class="bg-light">
+			<div class="container">
+				<div class="display-4 font-weight-bold text-center my-3">人民政府留下號碼激動</div>
+				<div class="row my-3">
+					<div class="col-md-6">
+						<div class="d-flex">
+							<div>
+								<i class="fa-solid fa-hippo fa-8x mr-5 mt-5 text-primary wow animate__backInLeft"data-wow-duration="2.5s" data-wow-delay="0s"></i>
+							</div>
+							<div>
+								<h1>取得報導授權方</h1>
+								<p>鼓勵她是圖書一絲也要立場對了即可，值得是什麼他的緩緩到底電信翻譯不在女士手上介紹放在這麼透明網，電影輸出沒事部分圖形高校每次大學但在播放材料軍事再，有着方案戰鬥深圳沒事經營許，而來運輸很好魅力儘量，。</p>
+							</div>
+						</div>	
+					</div>
+					<div class="col-md-6">
+						<div class="d-flex">
+							<div>
+								<i class="fa-solid fa-otter fa-8x mr-5 mt-5 text-warning wow animate__backInRight"data-wow-duration="2.5s" data-wow-delay="0s"></i>
+							</div>
+							<div>
+								<h1>取得報導授權方式</h1>
+								<p>鼓勵她是圖書一絲也要立場對了即可，值得是什麼他的緩緩到底電信翻譯不在女士手上介紹放在這麼透明網，電影輸出沒事部分圖形高校每次大學但在播放材料軍事再，有着方案戰鬥深圳沒事經營許，而來運輸很好魅力儘量，。</p>
+							</div>
+						</div>	
+					</div>
+				</div>
+				<div class="row my-3">
+					<div class="col-md-6">
+						<div class="d-flex">
+							<div>
+								<i class="itop fa-solid fa-fish fa-8x mr-5 mt-5 text-danger wow animate__backInLeft" data-wow-duration="2.7s" data-wow-delay="0.1s"></i>
+							</div>
+							<div>
+								<h1>取得報導授權方式</h1>
+								<p>鼓勵她是圖書一絲也要立場對了即可，值得是什麼他的緩緩到底電信翻譯不在女士手上介紹放在這麼透明網，電影輸出沒事部分圖形高校每次大學但在播放材料軍事再，有着方案戰鬥深圳沒事經營許，而來運輸很好魅力儘量，。</p>
+							</div>
+						</div>	
+					</div>
+					<div class="col-md-6">
+						<div class="d-flex">
+							<div>
+								<i class="itop fa-solid fa-frog fa-8x mr-5 mt-5 text-info wow animate__backInRight itop"data-wow-duration="2.7s" data-wow-delay="0.1s"></i>
+							</div>
+							<div>
+								<h1>取得報導授權方式</h1>
+								<p>鼓勵她是圖書一絲也要立場對了即可，值得是什麼他的緩緩到底電信翻譯不在女士手上介紹放在這麼透明網，電影輸出沒事部分圖形高校每次大學但在播放材料軍事再，有着方案戰鬥深圳沒事經營許，而來運輸很好魅力儘量，。</p>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- 07 -->
+		<section class="bg-white py-5" style="position: relative;">
+  		<div class="container">
+  			<div class="row">
+  				<div class="col-md-7 thistext2">
+  					<dl class="row">
+					  <dt class="col-sm-3">對比物理旅</dt>
+					  <dd class="col-sm-9">並不官員我來生日權力付出營，所說著名不。</dd>
+
+					  <dt class="col-sm-3">說什麼如下</dt>
+					  <dd class="col-sm-9">
+					    <p>強烈患者受到街道戰略你也當我，介紹品牌網路一定會哈爾濱網址地上，星座公安喜歡好看桌面重點魔，資金作。</p>
+					    <p>金額為你智能很久機票分別之間根據宣，條。</p>
+					  </dd>
+
+					  <dt class="col-sm-3">平均老師再度對此</dt>
+					  <dd class="col-sm-9">浙江數字幫忙看不到重大對象員工小學同志樓上婚姻，時尚窗口遺憾訓練運輸是什麼經歷很少快樂最新走進必，。</dd>
+
+					  <dt class="col-sm-3 text-truncate">請問委託快捷並</dt>
+					  <dd class="col-sm-9">綜合體系不足當天特色進了一台簡體女友尷，超過說到試試服裝有限責任公司，那樣表現。</dd>
+
+					  <dt class="col-sm-3">許可部門障礙文件</dt>
+					  <dd class="col-sm-9">
+					    <dl class="row">
+					      <dt class="col-sm-4">動漫提出了日誌組</dt>
+					      <dd class="col-sm-8">應用碩士無論性能藝術簡，命運接着一座也在自主不，麻煩及其電。</dd>
+					    </dl>
+					  </dd>
+						</dl>
+  				</div>
+  			</div>
+  		</div>
+  		<div class="row justify-content-end">
+  			<div class="col-md-5 bg-cover" style="position: absolute; background-image: url(images/dog08.jpg);top: 0; bottom: 0;"></div>
+  		</div>
+  	</section>
+  	<!-- 08 -->
+  	<section class="bg-light">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1287.1573442792908!2d120.64658810922562!3d24.149602544332637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693dbe20575011%3A0xf2a7acafb82cc187!2z6a2a5Lit6a2a6LKT54uX5rC05peP5aSn6LOj5aC0LeaWh-W_g-W6lw!5e0!3m2!1szh-TW!4stw!4v1662014228705!5m2!1szh-TW!4stw" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="username2">姓名</label>
+							<input type="text" id="username2" name="username2" class="form-control">
+						</div>
+						<div class="form-group">
+							<label for="tel2">電話</label>
+							<input type="tel" id="tel2" name="tel2" class="form-control">
+						</div>
+						<div class="form-group">
+							<label for="email2">Email</label>
+							<input type="email" id="email2" name="email2" class="form-control">
+						</div>
+						<div class="form-group">
+							<label for="num2">人數</label>
+							<input type="number" id="num2" name="num2" min="0" class="form-control">
+						</div>
+						<div class="form-check">
+						  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+						  <label class="form-check-label" for="exampleRadios1">
+						    需要車位
+						  </label>
+						</div>
+						<div class="form-check">
+						  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+						  <label class="form-check-label" for="exampleRadios2">
+						    不需要車位
+						  </label>
+						</div>	
+						<div class="text-right">
+							<a href="#" class="btn btn-secondary">取消</a>
+							<a href="#" class="btn btn-primary">確認</a>
+						</div>				
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- 09 -->
+		<section class="bg-white">
+			<div class="row">
+				<div class="col-md-6 bg-cover pl-5 py-5" style="background-image: url(images/dog06.jpg);">
+					<div class="row">
+						<div class="col-md-8">
+							<div class="text p-3">
+								<small class="text-warning font-weight-bold">加入我們</small>
+								<h1 class="text-white">誠徵業位經理一名, 薪水面議!</h1>
+								<p  class="text-white">審批認為我對性感懂得不多出發並在一對值得體內躺在陽光不，遺憾很少按鈕品種古代爆，距離生日提升使得傢伙唯一似乎厲害別的留學原創，熱線到處快捷特價車輛，農村輸入病。</p>
+								<a href="#" class="btn btn-info">加入我們</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 bg-cover pl-5 py-5" style="background-image: url(images/dog07.jpg);">
+					<div class="row">
+						<div class="col-md-8">
+							<div class="text p-3">
+								<small class="text-warning font-weight-bold">加入我們</small>
+								<h1 class="text-white">誠徵工讀生一名, 薪水面議!</h1>
+								<p  class="text-white">審批認為我對性感懂得不多出發並在一對值得體內躺在陽光不，遺憾很少按鈕品種古代爆，距離生日提升使得傢伙唯一似乎厲害別的留學原創，熱線到處快捷特價車輛，農村輸入病。</p>
+								<a href="#" class="btn btn-info">加入我們</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- 10 -->
+		<footer class="bg-dark py-3">
+			<div class="container">
+				<div class="row">
+					<nav class="nav small text-white">
+						<a href="#" class="nav-link disabled">Awei 2022</a>
+						<a href="#" class="nav-link">123</a>
+						<a href="#" class="nav-link">456</a>
+						<a href="#" class="nav-link">789</a>
+					</nav>
+				</div>
+			</div>
+		</footer>
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/jquery-2.1.0.min.js"></script>
+    <script>
+              new WOW().init();
+    </script>
+    <!-- 註冊 -->
+    <script>
+		var flag_username = false;
+		var flag_password = false;
+		var flag_pwd2 = false;
+		var flag_email = false;
+		var flag_agree = false;
+		//主程式
+		$(function()
+		{
+			//按鈕監聽
+			$("#ok_btn").bind("click",function()
+			{
+				if(flag_username && flag_password && flag_pwd2 && flag_email){
+					//將要傳遞的資料轉換成json格式
+					var dataJSON = {};
+					dataJSON["username"] = $("#usernamer").val();
+					dataJSON["password"] = $("#passwordr").val();
+					dataJSON["email"] = $("#email").val();
+					console.log(JSON.stringify(dataJSON));
+					$.ajax({
+						type: "POST",
+						url: "all_api.php",
+						data: JSON.stringify(dataJSON),
+						contentType: "application/json;charset=utf-8",
+						dataType: "json",
+						success: showdata,
+						error: function(){
+							alert("error-all_api.php");
+						}
+					});
+				}else{
+					alert("輸入資料不符合規定!!!");
+				}
+			});
+
+			//即時監聽    帳號 註冊
+			$("#usernamer").bind("input propertychange",function()
+			{
+				if($("#usernamer").val().length < 9 && $("#usernamer").val().length > 3){
+					var jsonData = {};
+					jsonData["username"] = $("#usernamer").val();
+					console.log( JSON.stringify(jsonData));
+					$.ajax({
+                        type: "POST",
+                        url: "all_api.php",
+                        data: JSON.stringify(jsonData),
+                        dataType: "json",
+                        success: showdata_check_uni,
+                        error: function(){
+                            //alert("error-all_api.php");
+                        }
+                    });                    
+				}
+				else{
+					$("#err_usernamer").html("字數不符合規定!");
+					$("#err_usernamer").css("color","#F00");
+					flag_username = false
+				}
+				
+			});
+
+			//即時監聽    密碼
+			$("#passwordr").bind("input propertychange",function()
+			{
+				if($("#passwordr").val().length < 9 && $("#passwordr").val().length > 3){
+					$("#err_passwordr").html("符合規定");
+					$("#err_passwordr").css("color","#0E0");
+					flag_password = true;
+				}
+				else{
+					$("#err_passwordr").html("字數不符合規定!");
+					$("#err_passwordr").css("color","#F00");
+					flag_password = false;
+				}
+				
+			});
+
+			//即時監聽    確認密碼
+			$("#pwd2").bind("input propertychange",function()
+			{
+				if($("#pwd2").val() == $("#passwordr").val()){
+					$("#err_pwd2").html("與密碼相同");
+					$("#err_pwd2").css("color","#0E0");
+					flag_pwd2 = true;
+				}
+				else
+				{
+					$("#err_pwd2").html("與密碼不符合");
+					$("#err_pwd2").css("color","#F00");
+					flag_pwd2 = false;
+				}
+			});
+
+			//即時監聽    信箱
+			$("#email").bind("input propertychange",function()
+			{
+				if($("#email").val().length < 31 && $("#email").val().length > 7){
+					$("#err_email").html("符合規定");
+					$("#err_email").css("color","#0E0");
+					flag_email = true;
+				}
+				else{
+					$("#err_email").html("字數不符合規定!");
+					$("#err_email").css("color","#F00");
+					flag_email = false;
+				}
+				
+			});
+		});
+		function showdata(data){
+			if(data.state){
+				alert(data.message);
+				location.href = "index.html";
+			}else{
+				alert(data.message);
+			}
+		}
+		function showdata_check_uni(data){
+			if(data.state){
+				//帳號不存在, 可以以使用此帳號
+				$("#err_usernamer").html("帳號格式符合規定, 不存在, 可以以使用此帳號!");
+				$("#err_usernamer").css("color", "green");
+				flag_username = true;
+			}else{
+				//帳號存在, 不可以以使用此帳號
+				$("#err_usernamer").html("帳號格式符合規定, 存在, 不可以以使用此帳號!");
+				$("#err_usernamer").css("color", "red");
+				flag_username = false;
+			}
+		}
+	</script>
+	<!-- 登入 -->
+	<script>
+		var flag_username = false;
+		var flag_password = false;
+		//主程式
+		$(function()
+		{
+			//按鈕監聽 登入
+			$("#login_btn").bind("click",function()
+			{
+				if(flag_username && flag_password){
+					var dataJSON = {};
+					dataJSON["username"] = $("#usernamel").val();
+					dataJSON["password"] = $("#passwordl").val();
+					$.ajax({
+                        type: "POST",
+                        url: "all_api.php",
+                        data: JSON.stringify(dataJSON),
+                        dataType: "json",
+                        success: showdata_login,
+                        error: function(){
+                            alert("error-all_api.php");
+                        }
+                    });
+				}else{
+					alert("輸入資料不符合規定!!!");
+				}
+			});
+
+			//即時監聽    帳號 登入
+			$("#usernamel").bind("input propertychange",function()
+			{
+				if($(this).val().length < 9 && $(this).val().length > 3){
+					$("#err_usernamel").html("帳號格式符合規定");
+					$("#err_usernamel").css("color","#0E0");
+					flag_username = true;                    
+				}
+				else{
+					$("#err_usernamel").html("字數不符合規定!");
+					$("#err_usernamel").css("color","#F00");
+					flag_username = false;
+				}
+				
+			});
+
+			//即時監聽    密碼 登入
+			$("#passwordl").bind("input propertychange",function()
+			{
+				if($("#passwordl").val().length < 9 && $("#passwordl").val().length > 3){
+					$("#err_passwordl").html("符合規定");
+					$("#err_passwordl").css("color","#0E0");
+					flag_password = true;
+				}
+				else{
+					$("#err_passwordl").html("字數不符合規定!");
+					$("#err_passwordl").css("color","#F00");
+					flag_password = false;
+				}
+				
+			});
+		});
+		function showdata_login(data){
+			if(data.state){
+				alert(data.message);
+				setCookie("UID", data.UID, 2);
+				setCookie("UID_2", data.UID_2, 2);
+				location.href = "index.html";
+			}else{
+				alert(data.message);
+			}
+		}
+		function setCookie(cname, cvalue, exdays) {
+  			const d = new Date();
+  			d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  			let expires = "expires="+ d.toUTCString();
+  			document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+		}
+
+
+	</script>
+	<!-- index -->
+	<script>
+		var flag_Email = true;
+		var D_id; //for 更新使用
+		var UID;
+		$(function(){
+			if(getCookie("UID") != "" && getCookie("UID_2") != ""){
+				//傳遞UID至後端確認是否合法
+				var jsonData = {};
+				jsonData["UID"] = getCookie("UID");
+				jsonData["UID_2"] = getCookie("UID_2");
+				$.ajax({
+					type: "POST",
+					url: "all_api.php",
+					data: JSON.stringify(jsonData),
+					dataType: "json",
+					success: showdata_check_UID,
+					error: function(){
+						alert("error-all_api.php");
+					}
+				});
+			}else{
+				// location.href = "member_login10.html";
+			}
+		});
+        function showdata_R(data){
+        	
+        	$("#showname").empty();
+				for(var i=0;i<data.data.length;i++){
+					if(data.state && data.data[i].UID == getCookie("UID")){
+					var strHTML ='<div id="showname" class="container text-white text-left">歡迎!!帳號:'+data.data[i].Username+'</div>';
+					$("#showname").append(strHTML);
+					}else{
+						// alert(data.message);
+					}
+				}
+				for(var i=0;i<data.data.length;i++){
+					if(data.state && data.data[i].UID == getCookie("UID")){
+						$("#btnbtn").empty();
+					var strHTML ='<a href="#" class="btn btn-outline-primary mr-2" data-toggle="modal" data-target="#logouta">登出</a>';
+					$("#btnbtn").append(strHTML);
+					}else{
+						// alert(data.message);
+					}
+			}
+		}
+		function showdata_check_UID(data){
+
+			if(data.state){
+				$("#login_username").html(data.data.Username);
+				$("#logoutb").bind("click",function(){
+					console.log(UID);
+					setCookie("UID", "", 7);
+					setCookie("UID_2", "", 7);
+					location.href = "index.html";
+				});
+			}else{
+				// location.href = "member_login10.html"
+			}
+			if(data.state){
+			$("#login_username").html(data.data.Username);
+			$.ajax({
+				type: "GET",
+				url: "all_api.php",
+				dataType: "json",
+				async: false,    //非同步
+				success: showdata_R,
+				error: function(){
+					alert("error-all_api.php");
+				}
+			});
+			//Email即時監聽
+			$("#email").bind("input propertychange", function(){
+				if($(this).val().length < 31 && $("#email").val().length > 7){
+					$("#err_Email").html("符合規定");
+					$("#err_Email").css("color","#0E0");
+					flag_Email = true;
+				}
+				else{
+					$("#err_Email").html("字數不符合規定!");
+					$("#err_Email").css("color","#F00");
+					flag_Email = false;
+				}
+			});
+		}else{
+				// location.href = "member_control_panel10_user.html";
+			}
+		}
+
+		function getCookie(cname) {
+		  let name = cname + "=";
+		  let decodedCookie = decodeURIComponent(document.cookie);
+		  let ca = decodedCookie.split(';');
+		  for(let i = 0; i <ca.length; i++) {
+		    let c = ca[i];
+		    while (c.charAt(0) == ' ') {
+		      c = c.substring(1);
+		    }
+		    if (c.indexOf(name) == 0) {
+		      return c.substring(name.length, c.length);
+		    }
+		  }
+		  return "";
+		}
+		function setCookie(cname, cvalue, exdays) {
+		  const d = new Date();
+		  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+		  let expires = "expires="+ d.toUTCString();
+		  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+		}
+
+
+	</script>
+  </body>
+</html>
